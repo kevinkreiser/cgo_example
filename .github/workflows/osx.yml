@@ -1,0 +1,43 @@
+name: OSX CI
+on:
+  push:
+    paths-ignore: []
+    branches:
+      - master
+  pull_request:
+    paths-ignore: []
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+
+jobs:
+  build_osx:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: dependencies
+        run: HOMEBREW_NO_AUTO_UPDATE=1 brew install clang cmake go
+
+      - name: build
+        run: make build
+
+      - name: run
+        run: make run
+      
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        # only run this if manually invoked or a previous job failed
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.debug_enabled) || failure() }}
+        with:
+          detached: true
+          timeout-minutes: 15
+          

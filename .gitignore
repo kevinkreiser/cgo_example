@@ -1,0 +1,3 @@
+thirdparty/libfoo*
+thirdparty/*.h*
+build
