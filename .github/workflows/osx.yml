@@ -28,7 +28,7 @@ jobs:
         run: HOMEBREW_NO_AUTO_UPDATE=1 brew install llvm cmake go
 
       - name: build
-        run: make build
+        run: find . && make build
 
       - name: run
         run: make run

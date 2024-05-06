@@ -25,7 +25,7 @@ jobs:
           submodules: recursive
       
       - name: dependencies
-        run: sudo apt update -y && sudo apt install -y install gcc cmake go
+        run: sudo apt update -y && sudo apt install -y install gcc cmake golang
 
       - name: build
         run: make build
