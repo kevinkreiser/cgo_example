@@ -5,5 +5,5 @@ build: thirdparty/foo_c.h thirdparty/libfoo_c.so
 thirdparty/foo_c.h: thirdparty
 thirdparty/libfoo_c.so: thirdparty
 thirdparty: build_thirdparty.sh
-	build_thirdparty.sh
+	./build_thirdparty.sh
 .PHONY: thirdparty
