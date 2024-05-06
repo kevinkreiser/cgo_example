@@ -1,6 +1,7 @@
 UNAME_S := $(shell uname -s)
 run: build
 ifeq ($(UNAME_S),Darwin)
+  otool -L ./build
 	DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:thirdparty ./build
 else
 	LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:thirdparty ./build
