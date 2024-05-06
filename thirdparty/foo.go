@@ -1,7 +1,7 @@
 package thirdparty
 
 // #cgo CFLAGS: -I. -O3 -g0 -std=c11
-// #cgo LDFLAGS: -L. -lfoo_c -lfoo_c
+// #cgo LDFLAGS: thirdparty/libfoo_c.a thirdparty/libfoo.a
 // #include "foo_c.h"
 import "C"
 

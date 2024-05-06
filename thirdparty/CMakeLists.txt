@@ -10,7 +10,7 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include FILES
 install(TARGETS foo DESTINATION lib ARCHIVE DESTINATION lib)
 
 # c library
-add_library(foo_c SHARED src/foo_c.cpp)
+add_library(foo_c src/foo_c.cpp)
 target_include_directories(foo_c PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(foo_c PUBLIC foo)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
