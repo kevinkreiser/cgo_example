@@ -27,7 +27,7 @@ jobs:
       - name: dependencies
         run: |
           sudo apt update -y
-          sudo apt install -y wget gcc cmake
+          sudo apt install -y wget gcc cmake liblz4-dev
           wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz -O go.tar.gz
           sudo tar -C /usr/local -xzf go.tar.gz
 

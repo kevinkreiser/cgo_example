@@ -1,10 +1,10 @@
 package thirdparty
 
 // #cgo CFLAGS: -I. -O3 -g0 -std=c11
-// #cgo LDFLAGS: thirdparty/libfoo_c.a thirdparty/libfoo.a
+// #cgo LDFLAGS: thirdparty/libfoo_c.a thirdparty/libfoo.a -llz4 -lstdc++
 // #include "foo_c.h"
 import "C"
 
-func Foo() int {
-    return int(C.foo_bar())
+func Foo() string {
+    return C.GoString(C.foo_bar())
 }

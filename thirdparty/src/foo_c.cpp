@@ -2,9 +2,7 @@
 #include "foo.hpp"
 
 extern "C" {
-
-    int foo_bar() {
-        return foo::bar();
+    const char* foo_bar() {
+        return foo::bar().c_str();
     }
-
 } // extern "C"

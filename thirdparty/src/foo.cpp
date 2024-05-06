@@ -1,7 +1,8 @@
 #include "foo.hpp"
+#include <lz4.h>
 
 namespace foo {
-    int bar() {
-        return 42;
+    std::string bar() {
+        return LZ4_versionString();
     }
 }
