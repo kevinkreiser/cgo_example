@@ -17,7 +17,7 @@ on:
         default: false
 
 jobs:
-  build_osx:
+  build_linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
           submodules: recursive
       
       - name: dependencies
-        run: apt update -y && apt install -y install gcc cmake go
+        run: sudo apt update -y && sudo apt install -y install gcc cmake go
 
       - name: build
         run: make build
