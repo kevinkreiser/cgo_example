@@ -25,13 +25,17 @@ jobs:
           submodules: recursive
       
       - name: dependencies
-        run: sudo apt update -y && sudo apt install -y gcc cmake golang
+        run: |
+          sudo apt update -y
+          sudo apt install -y wget gcc cmake
+          wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz -O go.tar.gz
+          sudo tar -C /usr/local -xzf go.tar.gz
 
       - name: build
-        run: make build
+        run: PATH=$PATH:/usr/local/go/bin make build
 
       - name: run
-        run: make run
+        run: PATH=$PATH:/usr/local/go/bin make run
       
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
